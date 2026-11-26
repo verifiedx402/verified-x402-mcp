@@ -1,0 +1,44 @@
+{
+  "name": "@verifiedx402/mcp",
+  "version": "1.0.0",
+  "description": "Client and stdio MCP for Verified x402. Before paying any x402 endpoint, run the free check to see if it is live and priced right.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Verified x402 <verifix402@mail.grokbot.com>",
+  "homepage": "https://verifiedx402.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/verifiedx402/verified-x402-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/verifiedx402/verified-x402-mcp/issues"
+  },
+  "keywords": [
+    "x402",
+    "mcp",
+    "ai-agents",
+    "usdc",
+    "verified-x402"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "verified-x402": "./bin/verified-x402.mjs"
+  },
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "SKILL.md",
+    "README.md",
+    "LICENSE",
+    "server.json"
+  ],
+  "scripts": {
+    "start": "node ./bin/verified-x402.mjs",
+    "mcp": "node ./bin/verified-x402.mjs"
+  }
+}

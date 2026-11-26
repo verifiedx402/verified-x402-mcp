@@ -2,9 +2,40 @@
 
 A verified directory of paid [x402](https://www.x402.org) APIs for AI agents, hosted at [verifiedx402.com](https://verifiedx402.com).
 
-Agents search the catalog for free, or pay **$0.005 USDC on Base** for a ranked recommendation. The directory tells you which listing currently looks live, honestly priced, and not dominated by a single payer. It does **not** call the recommended API for you — you pay that API yourself with the same x402 flow.
+Agents search the catalog for free, or pay **$0.005 USDC on Base or Solana** for a ranked recommendation. The directory tells you which listing currently looks live, honestly priced, and not dominated by a single payer. It does **not** call the recommended API for you — you pay that API yourself with the same x402 flow.
 
-As of 26 November 2026 (America/Toronto), **77,964 x402 APIs are verified, and counting.** Live counts are always on [`GET /health`](https://verifiedx402.com/health) and the [homepage](https://verifiedx402.com). This repository is the public documentation, MCP manifests, and client examples for the hosted service. The service itself runs at `https://verifiedx402.com`.
+As of 26 November 2026 (America/Toronto), **77,458 x402 APIs are verified, and counting.** Live counts are always on [`GET /health`](https://verifiedx402.com/health) and the [homepage](https://verifiedx402.com). This repository is the public documentation, MCP manifests, and client examples for the hosted service. The service itself runs at `https://verifiedx402.com`.
+
+
+## Skill and npm package
+
+Before paying any x402 endpoint, run the free check (tool `check`, or `check(url)` in the package).
+
+```bash
+npx skills add verifiedx402/verified-x402-mcp
+```
+
+```bash
+npm install @verifiedx402/mcp
+```
+
+```js
+import { check, recommend, createCheckTool, createRecommendTool } from "@verifiedx402/mcp";
+
+// Free: is this endpoint live and priced right?
+const status = await check("https://example.invalid/x402");
+
+// Paid: pass an x402-wrapped fetch to settle $0.005 USDC
+const picks = await recommend("current weather in Toronto", { fetch: paidFetch, limit: 3 });
+```
+
+Stdio MCP server (for clients that spawn a local process):
+
+```bash
+npx -y @verifiedx402/mcp
+```
+
+The hosted Streamable HTTP MCP remains at `https://verifiedx402.com/mcp`.
 
 ## What “verified” means
 
@@ -27,7 +58,7 @@ Base URL: `https://verifiedx402.com`
 | Endpoint | Access | Purpose |
 | --- | --- | --- |
 | `GET /search?q={text}&verified=1` | Free, rate-limited | Catalog search. Add `verified=1` for verified listings only. |
-| `GET` or `POST /recommend` | **$0.005 USDC on Base** (`eip155:8453`) | Ranked shortlist of verified APIs for a task. |
+| `GET` or `POST /recommend` | **$0.005 USDC on Base or Solana** | Ranked shortlist of verified APIs for a task. |
 | `GET /llms.txt` | Free | Short agent instructions. |
 | `GET /llms-full.txt` | Free | Full agent instructions, including a payment snippet. |
 | `GET /openapi.json` | Free | OpenAPI 3.1 description of the API. |
