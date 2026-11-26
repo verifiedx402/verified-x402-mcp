@@ -1,6 +1,6 @@
 {
   "name": "@verifiedx402/mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Client and stdio MCP for Verified x402. Before paying any x402 endpoint, run the free check to see if it is live and priced right.",
   "type": "module",
   "license": "MIT",
@@ -24,7 +24,7 @@
     "node": ">=18"
   },
   "bin": {
-    "verified-x402": "./bin/verified-x402.mjs"
+    "verified-x402": "bin/verified-x402.js"
   },
   "exports": {
     ".": "./src/index.js"
@@ -38,7 +38,11 @@
     "server.json"
   ],
   "scripts": {
-    "start": "node ./bin/verified-x402.mjs",
-    "mcp": "node ./bin/verified-x402.mjs"
+    "start": "node ./bin/verified-x402.js",
+    "mcp": "node ./bin/verified-x402.js"
+  },
+  "mcpName": "com.verifiedx402/directory",
+  "publishConfig": {
+    "access": "public"
   }
 }

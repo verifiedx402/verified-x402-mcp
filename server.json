@@ -3,7 +3,7 @@
   "name": "com.verifiedx402/directory",
   "title": "Verified x402",
   "description": "Verified directory of paid x402 APIs for AI agents. Free search, $0.005 ranked picks in USDC.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "websiteUrl": "https://verifiedx402.com",
   "repository": {
     "url": "https://github.com/verifiedx402/verified-x402-mcp",
@@ -13,6 +13,16 @@
     {
       "type": "streamable-http",
       "url": "https://verifiedx402.com/mcp"
+    }
+  ],
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@verifiedx402/mcp",
+      "version": "1.0.1",
+      "transport": {
+        "type": "stdio"
+      }
     }
   ]
 }
