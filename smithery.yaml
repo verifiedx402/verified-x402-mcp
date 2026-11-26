@@ -1,0 +1,12 @@
+# Remote / hosted MCP server. Publishing to Smithery is a separate step
+# and has not been done from this repository.
+name: verified-x402
+target: remote
+startCommand:
+  type: streamableHttp
+  url: https://verifiedx402.com/mcp
+  configSchema:
+    type: object
+    properties: {}
+    additionalProperties: false
+  exampleConfig: {}

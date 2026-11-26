@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "verified-x402": {
+      "type": "http",
+      "url": "https://verifiedx402.com/mcp"
+    }
+  }
+}
